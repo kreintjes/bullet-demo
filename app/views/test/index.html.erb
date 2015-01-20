@@ -1,0 +1,20 @@
+<h1>Test#index</h1>
+
+<div>
+<% if Organisation.any? && User.any? %>
+  <%# Strangely enough however, after the authorize call the call below also raises a bullet warning: %>
+  <%= @organisation.projects.inspect %>
+  <%# As well as this call: %>
+  <%= Organisation.find(1).projects.inspect %>
+  <%# However, this call does not: %>
+  <%= Organisation.first.projects.inspect %>
+<% else %>
+  <p>Please add an organisation, an user and some projects (or run rake db:seed)</p>
+<% end %>
+</div>
+
+<p>
+  <%= link_to 'Organisations', organisations_path %><br />
+  <%= link_to 'Users', users_path %><br />
+  <%= link_to 'Projects', projects_path %>
+</p>
