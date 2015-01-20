@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   resources :organisations
   root to: 'organisations#index'
 
